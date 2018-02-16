@@ -209,6 +209,14 @@
     <Compile Include="Migrations\201802161609487_AddMembershipType.Designer.cs">
       <DependentUpon>201802161609487_AddMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802161717274_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201802161717274_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201802161717274_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802161738182_ApplyFluentAPIToCustomerName.cs" />
+    <Compile Include="Migrations\201802161738182_ApplyFluentAPIToCustomerName.Designer.cs">
+      <DependentUpon>201802161738182_ApplyFluentAPIToCustomerName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -309,6 +317,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802161609487_AddMembershipType.resx">
       <DependentUpon>201802161609487_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802161717274_PopulateMembershipTypes.resx">
+      <DependentUpon>201802161717274_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802161738182_ApplyFluentAPIToCustomerName.resx">
+      <DependentUpon>201802161738182_ApplyFluentAPIToCustomerName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,6 +18,20 @@ namespace Vidly.Migrations
             context.Customers.AddOrUpdate(c => c.Name,
             new Customer { Name = "John Smith", IsSubscribedToNewsletter = false, MembershipTypeId = 1, BirthDate = new DateTime(1996, 3, 28).Date },
             new Customer { Name = "Mary Williams", IsSubscribedToNewsletter = true, MembershipTypeId = 2 });
+
+            context.Genres.AddOrUpdate(g => g.Name,
+                new Genre { Name = "Comedy" },
+                new Genre { Name = "Action" },
+                new Genre { Name = "Family" },
+                new Genre { Name = "Romance" },
+                new Genre { Name = "Sci-Fi" });
+
+            context.Movies.AddOrUpdate(m => m.Name,
+                new Movie { Name = "Hangover", GenreId = 1 },
+                new Movie { Name = "Die Hard", GenreId = 2 },
+                new Movie { Name = "Teminator", GenreId = 2 },
+                new Movie { Name = "Toy Story", GenreId = 3 },
+                new Movie { Name = "Titanic", GenreId = 4 });
         }
     }
 }

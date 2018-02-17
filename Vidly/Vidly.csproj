@@ -229,9 +229,22 @@
     <Compile Include="Migrations\201802171240393_AddedBirthDateColumnToCustomersTable.Designer.cs">
       <DependentUpon>201802171240393_AddedBirthDateColumnToCustomersTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802171323591_AddedMoviesTable.cs" />
+    <Compile Include="Migrations\201802171323591_AddedMoviesTable.Designer.cs">
+      <DependentUpon>201802171323591_AddedMoviesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171326328_AddedGenreColumnToMoviesTable.cs" />
+    <Compile Include="Migrations\201802171326328_AddedGenreColumnToMoviesTable.Designer.cs">
+      <DependentUpon>201802171326328_AddedGenreColumnToMoviesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171331271_GenreNameRequiredMaxLenght255.cs" />
+    <Compile Include="Migrations\201802171331271_GenreNameRequiredMaxLenght255.Designer.cs">
+      <DependentUpon>201802171331271_GenreNameRequiredMaxLenght255.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -344,6 +357,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802171240393_AddedBirthDateColumnToCustomersTable.resx">
       <DependentUpon>201802171240393_AddedBirthDateColumnToCustomersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171323591_AddedMoviesTable.resx">
+      <DependentUpon>201802171323591_AddedMoviesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171326328_AddedGenreColumnToMoviesTable.resx">
+      <DependentUpon>201802171326328_AddedGenreColumnToMoviesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171331271_GenreNameRequiredMaxLenght255.resx">
+      <DependentUpon>201802171331271_GenreNameRequiredMaxLenght255.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

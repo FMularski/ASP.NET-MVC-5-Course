@@ -15,9 +15,9 @@ namespace Vidly.Migrations
 
         protected override void Seed(Vidly.Models.ApplicationDbContext context)
         {
-            context.Customers.AddOrUpdate(c => c.Id,
-                new Customer { Name = "John Smith", IsSubscribedToNewsletter = false, MembershipTypeId = 1 },
-                new Customer { Name = "Mary Williams", IsSubscribedToNewsletter = true, MembershipTypeId = 2 });
+            context.Customers.AddOrUpdate(c => c.Name,
+            new Customer { Name = "John Smith", IsSubscribedToNewsletter = false, MembershipTypeId = 1, BirthDate = new DateTime(1996, 3, 28).Date },
+            new Customer { Name = "Mary Williams", IsSubscribedToNewsletter = true, MembershipTypeId = 2 });
         }
     }
 }

@@ -217,6 +217,18 @@
     <Compile Include="Migrations\201802161738182_ApplyFluentAPIToCustomerName.Designer.cs">
       <DependentUpon>201802161738182_ApplyFluentAPIToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802171138218_AddedNameColumnToMembershipTypesTable.cs" />
+    <Compile Include="Migrations\201802171138218_AddedNameColumnToMembershipTypesTable.Designer.cs">
+      <DependentUpon>201802171138218_AddedNameColumnToMembershipTypesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171139084_PopulateMembershipTypesNames.cs" />
+    <Compile Include="Migrations\201802171139084_PopulateMembershipTypesNames.Designer.cs">
+      <DependentUpon>201802171139084_PopulateMembershipTypesNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171240393_AddedBirthDateColumnToCustomersTable.cs" />
+    <Compile Include="Migrations\201802171240393_AddedBirthDateColumnToCustomersTable.Designer.cs">
+      <DependentUpon>201802171240393_AddedBirthDateColumnToCustomersTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -323,6 +335,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802161738182_ApplyFluentAPIToCustomerName.resx">
       <DependentUpon>201802161738182_ApplyFluentAPIToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171138218_AddedNameColumnToMembershipTypesTable.resx">
+      <DependentUpon>201802171138218_AddedNameColumnToMembershipTypesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171139084_PopulateMembershipTypesNames.resx">
+      <DependentUpon>201802171139084_PopulateMembershipTypesNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171240393_AddedBirthDateColumnToCustomersTable.resx">
+      <DependentUpon>201802171240393_AddedBirthDateColumnToCustomersTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

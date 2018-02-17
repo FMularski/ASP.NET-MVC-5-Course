@@ -40,6 +40,10 @@ namespace Vidly.Models
                 .Property(c => c.Name)
                 .IsRequired()
                 .HasMaxLength(255);
+
+            modelBuilder.Entity<Customer>()
+                .Property(c => c.BirthDate)
+                .IsOptional();
         }
     }
 }

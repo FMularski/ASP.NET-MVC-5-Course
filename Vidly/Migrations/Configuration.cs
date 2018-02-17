@@ -27,11 +27,11 @@ namespace Vidly.Migrations
                 new Genre { Name = "Sci-Fi" });
 
             context.Movies.AddOrUpdate(m => m.Name,
-                new Movie { Name = "Hangover", GenreId = 1 },
-                new Movie { Name = "Die Hard", GenreId = 2 },
-                new Movie { Name = "Teminator", GenreId = 2 },
-                new Movie { Name = "Toy Story", GenreId = 3 },
-                new Movie { Name = "Titanic", GenreId = 4 });
+                new Movie { Name = "Hangover", GenreId = 1, NumberInStock = 5, ReleasedDate = DateTime.Now, DateAdded = DateTime.Now },
+                new Movie { Name = "Die Hard", GenreId = 2, NumberInStock = 3, ReleasedDate = DateTime.Now, DateAdded = DateTime.Now },
+                new Movie { Name = "Terminator", GenreId = 2, NumberInStock = 7, ReleasedDate = DateTime.Now, DateAdded = DateTime.Now },
+                new Movie { Name = "Toy Story", GenreId = 3, NumberInStock = 12, ReleasedDate = DateTime.Now, DateAdded = DateTime.Now },
+                new Movie { Name = "Titanic", GenreId = 4, NumberInStock = 9, ReleasedDate = DateTime.Now, DateAdded = DateTime.Now });
         }
     }
 }

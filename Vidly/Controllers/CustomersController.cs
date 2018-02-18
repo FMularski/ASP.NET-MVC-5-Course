@@ -41,6 +41,18 @@ namespace Vidly.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
+        public ActionResult Create(NewCustomerViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+                return View("New", viewModel);
+
+            _Context.Customers.Add(viewModel.Customer);
+            _Context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Details( int id)
         {
             var customer = _Context.Customers.Include( c => c.MembershipType).SingleOrDefault(c => c.Id == id);

@@ -36,15 +36,20 @@ namespace Vidly.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 MembershipTypes = _Context.MembershipTypes,
-                HeaderString = "New Customer"
             };
 
             return View("CustomerForm", viewModel);
         }
 
         [HttpPost]
-        public RedirectToRouteResult Save(CustomerFormViewModel viewModel)
+        public ActionResult Save(CustomerFormViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.MembershipTypes = _Context.MembershipTypes;
+                return View("CustomerForm", viewModel);
+            }
+
             if (viewModel.Customer.Id == 0)    // a customer with id = 0 is a new customer
                 _Context.Customers.Add(viewModel.Customer);
             else
@@ -72,7 +77,6 @@ namespace Vidly.Controllers
             {
                 Customer = customer,
                 MembershipTypes = _Context.MembershipTypes.ToList(),
-                HeaderString = "Edit Customer"
             };
 
             return View("CustomerForm", viewModel);

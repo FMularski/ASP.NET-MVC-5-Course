@@ -24,7 +24,7 @@ namespace Vidly.Controllers
             _Context.Dispose();
         }
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var customers = _Context.Customers.Include(c => c.MembershipType).ToList();
 
@@ -43,7 +43,7 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(CustomerFormViewModel viewModel)
+        public RedirectToRouteResult Save(CustomerFormViewModel viewModel)
         {
             if (viewModel.Customer.Id == 0)    // a customer with id = 0 is a new customer
                 _Context.Customers.Add(viewModel.Customer);

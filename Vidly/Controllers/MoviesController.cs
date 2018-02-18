@@ -51,7 +51,7 @@ namespace Vidly.Controllers
             return View("MovieForm", viewModel);
         }
 
-        public ActionResult Save(MovieFormViewModel viewModel)
+        public RedirectToRouteResult Save(MovieFormViewModel viewModel)
         {
             if (viewModel.Movie.Id == 0)
                 _Context.Movies.Add(viewModel.Movie);
@@ -70,5 +70,23 @@ namespace Vidly.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Edit( int id)
+        {
+            var movie = _Context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            var viewModel = new MovieFormViewModel
+            {
+                Movie = movie,
+                Genres = _Context.Genres,
+                HeaderString = "Edit Movie"
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
     }
 }

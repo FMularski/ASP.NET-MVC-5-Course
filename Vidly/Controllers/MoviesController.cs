@@ -45,25 +45,37 @@ namespace Vidly.Controllers
             var viewModel = new MovieFormViewModel
             {
                 Genres = _Context.Genres,
-                HeaderString = "New Movie"
             };
 
             return View("MovieForm", viewModel);
         }
 
-        public RedirectToRouteResult Save(MovieFormViewModel viewModel)
+        public ActionResult Save(MovieFormViewModel viewModel)
         {
-            if (viewModel.Movie.Id == 0)
-                _Context.Movies.Add(viewModel.Movie);
+            if ( !ModelState.IsValid)
+            {
+                viewModel.Genres = _Context.Genres;
+                return View("MovieForm", viewModel);
+            }
+
+            if (viewModel.Id == 0)
+            {
+                _Context.Movies.Add(new Movie
+                {
+                    Name = viewModel.Name,
+                    ReleasedDate = viewModel.ReleasedDate.Value,
+                    GenreId = viewModel.GenreId.Value,
+                    NumberInStock = viewModel.NumberInStock.Value
+                });
+            }
             else
             {
-                var movieInDb = _Context.Movies.Single(m => m.Id == viewModel.Movie.Id);
+                var movieInDb = _Context.Movies.Single(m => m.Id == viewModel.Id);
 
-                movieInDb.Name = viewModel.Movie.Name;
-                movieInDb.ReleasedDate = viewModel.Movie.ReleasedDate;
-                movieInDb.DateAdded= viewModel.Movie.DateAdded;
-                movieInDb.GenreId = viewModel.Movie.GenreId;
-                movieInDb.NumberInStock = viewModel.Movie.NumberInStock;
+                movieInDb.Name = viewModel.Name;
+                movieInDb.ReleasedDate = viewModel.ReleasedDate.Value;
+                movieInDb.GenreId = viewModel.GenreId.Value;
+                movieInDb.NumberInStock = viewModel.NumberInStock.Value;
             }
 
             _Context.SaveChanges();
@@ -78,11 +90,9 @@ namespace Vidly.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
-                Genres = _Context.Genres,
-                HeaderString = "Edit Movie"
+                Genres = _Context.Genres
             };
 
             return View("MovieForm", viewModel);

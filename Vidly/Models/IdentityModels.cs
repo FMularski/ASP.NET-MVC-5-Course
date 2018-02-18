@@ -62,6 +62,18 @@ namespace Vidly.Models
                 .WithMany(g => g.Movies)
                 .HasForeignKey(m => m.GenreId);
 
+            modelBuilder.Entity<Movie>()
+                .Property(m => m.ReleasedDate)
+                .IsRequired();
+
+            modelBuilder.Entity<Movie>()
+                .Property(m => m.DateAdded)
+                .IsRequired();
+
+            modelBuilder.Entity<Movie>()
+                .Property(m => m.NumberInStock)
+                .IsRequired();
+
             /*GENRE*/
 
             modelBuilder.Entity<Genre>()

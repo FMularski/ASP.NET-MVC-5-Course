@@ -33,24 +33,49 @@ namespace Vidly.Controllers
 
         public ViewResult New()
         {
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerFormViewModel
             {
-                MembershipTypes = _Context.MembershipTypes
+                MembershipTypes = _Context.MembershipTypes,
+                HeaderString = "New Customer"
             };
 
-            return View(viewModel);
+            return View("CustomerForm", viewModel);
         }
 
         [HttpPost]
-        public ActionResult Create(NewCustomerViewModel viewModel)
+        public ActionResult Save(CustomerFormViewModel viewModel)
         {
-            if (!ModelState.IsValid)
-                return View("New", viewModel);
+            if (viewModel.Customer.Id == 0)    // a customer with id = 0 is a new customer
+                _Context.Customers.Add(viewModel.Customer);
+            else
+            {
+                var customerInDb = _Context.Customers.Single(c => c.Id == viewModel.Customer.Id);
+                customerInDb.Name = viewModel.Customer.Name;
+                customerInDb.BirthDate = viewModel.Customer.BirthDate;
+                customerInDb.MembershipTypeId = viewModel.Customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsletter = viewModel.Customer.IsSubscribedToNewsletter;
+            }
 
-            _Context.Customers.Add(viewModel.Customer);
             _Context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit( int id)
+        {
+            var customer = _Context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return HttpNotFound();
+
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _Context.MembershipTypes.ToList(),
+                HeaderString = "Edit Customer"
+            };
+
+            return View("CustomerForm", viewModel);
         }
 
         public ActionResult Details( int id)

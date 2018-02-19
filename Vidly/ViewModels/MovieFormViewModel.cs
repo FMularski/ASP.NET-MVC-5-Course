@@ -49,5 +49,19 @@ namespace Vidly.ViewModels
                 return "New Movie";
             }
         }
+
+        public Movie MovieBasedOnViewModel
+        {
+            get
+            {
+                return new Movie
+                {
+                    Name = this.Name,
+                    ReleasedDate = this.ReleasedDate.Value,
+                    GenreId = this.GenreId.Value,
+                    NumberInStock = this.NumberInStock.Value
+                };
+            }
+        }
     }
 }

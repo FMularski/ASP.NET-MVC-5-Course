@@ -60,13 +60,9 @@ namespace Vidly.Controllers
 
             if (viewModel.Id == 0)
             {
-                _Context.Movies.Add(new Movie
-                {
-                    Name = viewModel.Name,
-                    ReleasedDate = viewModel.ReleasedDate.Value,
-                    GenreId = viewModel.GenreId.Value,
-                    NumberInStock = viewModel.NumberInStock.Value
-                });
+                var movie = viewModel.MovieBasedOnViewModel;
+                movie.DateAdded = DateTime.Now;
+                _Context.Movies.Add(movie);
             }
             else
             {

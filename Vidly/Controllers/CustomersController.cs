@@ -35,7 +35,6 @@ namespace Vidly.Controllers
         {
             var viewModel = new CustomerFormViewModel
             {
-                Customer = new Customer(),
                 MembershipTypes = _Context.MembershipTypes,
             };
 
@@ -52,15 +51,15 @@ namespace Vidly.Controllers
                 return View("CustomerForm", viewModel);
             }
 
-            if (viewModel.Customer.Id == 0)    // a customer with id = 0 is a new customer
-                _Context.Customers.Add(viewModel.Customer);
+            if (viewModel.Id == 0)    // a customer with id = 0 is a new customer
+                _Context.Customers.Add(viewModel.CustomerBasedOnViewModel);
             else
             {
-                var customerInDb = _Context.Customers.Single(c => c.Id == viewModel.Customer.Id);
-                customerInDb.Name = viewModel.Customer.Name;
-                customerInDb.BirthDate = viewModel.Customer.BirthDate;
-                customerInDb.MembershipTypeId = viewModel.Customer.MembershipTypeId;
-                customerInDb.IsSubscribedToNewsletter = viewModel.Customer.IsSubscribedToNewsletter;
+                var customerInDb = _Context.Customers.Single(c => c.Id == viewModel.Id);
+                customerInDb.Name = viewModel.Name;
+                customerInDb.BirthDate = viewModel.BirthDate;
+                customerInDb.MembershipTypeId = viewModel.MembershipTypeId.Value;
+                customerInDb.IsSubscribedToNewsletter = viewModel.IsSubscribedToNewsletter;
             }
 
             _Context.SaveChanges();
@@ -75,9 +74,8 @@ namespace Vidly.Controllers
             if (customer == null)
                 return HttpNotFound();
 
-            var viewModel = new CustomerFormViewModel
+            var viewModel = new CustomerFormViewModel(customer)
             {
-                Customer = customer,
                 MembershipTypes = _Context.MembershipTypes.ToList(),
             };
 

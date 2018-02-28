@@ -11,6 +11,7 @@ namespace Vidly.Models
     public class ApplicationUser : IdentityUser
     {
         public string DrivingLicense { get; set; }
+        public string Phone { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -89,6 +90,10 @@ namespace Vidly.Models
                 .Property(u => u.DrivingLicense)
                 .IsRequired()
                 .HasMaxLength(255);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .Property(u => u.Phone)
+                .IsRequired();
 
         }
     }

@@ -29,6 +29,7 @@ namespace Vidly.Controllers
             return View();
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ViewResult New()
         {
             var viewModel = new CustomerFormViewModel
@@ -41,6 +42,7 @@ namespace Vidly.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Save(CustomerFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
@@ -65,6 +67,7 @@ namespace Vidly.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit( int id)
         {
             var customer = _Context.Customers.SingleOrDefault(c => c.Id == id);

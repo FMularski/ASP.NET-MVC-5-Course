@@ -211,6 +211,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="DTOs\GenreDTO.cs" />
     <Compile Include="DTOs\MembershipTypeDTO.cs" />
     <Compile Include="DTOs\MovieDTO.cs" />
@@ -282,6 +283,10 @@
     <Compile Include="Migrations\201803041700485_CreatedRentalsTable.cs" />
     <Compile Include="Migrations\201803041700485_CreatedRentalsTable.Designer.cs">
       <DependentUpon>201803041700485_CreatedRentalsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803061655116_AddNumberAvailableColumnInMoviesTable.cs" />
+    <Compile Include="Migrations\201803061655116_AddNumberAvailableColumnInMoviesTable.Designer.cs">
+      <DependentUpon>201803061655116_AddNumberAvailableColumnInMoviesTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -542,6 +547,7 @@
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
     <Content Include="Views\Movies\ReadOnlyIndex.cshtml" />
+    <Content Include="Views\Rentals\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -607,6 +613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803041700485_CreatedRentalsTable.resx">
       <DependentUpon>201803041700485_CreatedRentalsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803061655116_AddNumberAvailableColumnInMoviesTable.resx">
+      <DependentUpon>201803061655116_AddNumberAvailableColumnInMoviesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

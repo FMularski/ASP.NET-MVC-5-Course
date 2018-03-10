@@ -96,6 +96,7 @@ namespace Vidly.Models
                 .Property(u => u.Phone)
                 .IsRequired();
 
+
         }
     }
 }

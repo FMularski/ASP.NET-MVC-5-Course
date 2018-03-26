@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Vidly.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     public class RentalsController : Controller
     {
         public ViewResult New()
